@@ -1,0 +1,11 @@
+:root{ /*variables used in the home page*/
+    --navBar-Header-Height: 86px;
+    --Main-Back-Footer-Height: 86px;
+}
+
+.Main-Body{
+    flex: 1;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}

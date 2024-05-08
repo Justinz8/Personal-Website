@@ -1,0 +1,49 @@
+
+
+.navBar-Header{
+    background-color: #FFFFFF;
+    width: 100%;
+    margin: 0px;
+    height: var(--navBar-Header-Height);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navBar-Header Button{
+    height: 30px;
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+}
+.navBar-Header Button:hover{
+    cursor: pointer;
+}
+
+.Burger{
+    margin-right: 50px;
+}
+
+.Burger, .Burger::after, .Burger::before{
+    width: 40px;
+    height: 6.2px;
+    background-color: #CFCFCF;
+    display: block;
+    position: relative;
+}
+
+.Burger::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+}
+
+.Burger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+}

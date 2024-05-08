@@ -1,0 +1,8 @@
+.body-container{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    height: 100%;
+}

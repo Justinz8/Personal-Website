@@ -1,0 +1,96 @@
+.Main-Back{
+    width: 100%;
+    height: calc(100vh - var(--Main-Back-Footer-Height) - var(--navBar-Header-Height));
+    background-color: #CFCFCF;
+    position: relative;
+    z-index: -1000;
+    overflow: hidden;
+}
+
+.Main-Back-Footer{
+    background-color: #FFFFFF;
+    width: 100%;
+    height: var(--Main-Back-Footer-Height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.Title-Container{
+    margin: 0;
+    z-index: 0;
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Title-Container h1{
+    position: relative;
+    color: #2E2E2E;
+    z-index: 0;
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 8rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.Main-Arrow{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-bottom: 0px;
+    animation: arrow-anim 1.5s linear infinite;
+}
+
+.Wave{
+    position: absolute;
+    width: 200vw;
+    height: 200vw;
+    left: -50vw;
+    z-index: -500;
+    bottom: -210vw;
+    transition: bottom 4s linear;
+    background: linear-gradient(180deg, #FFC738 0%, #FFC738 50%, #FFFFFF 100%);
+    border-radius: 33%;
+    animation: Waven 10s linear infinite;
+}
+
+.White-Underline{
+    height: 8px;
+    width: 80%;
+    animation: unerline-Appear 1s ease-out;
+    margin: auto;
+    background-color: white;
+}
+
+.White-Underline-placeholder{
+    height: 8px;
+    width: 80%;
+    background-color: transparent;
+}
+
+@keyframes Waven {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(360deg);}
+}
+
+@keyframes unerline-Appear {
+    0% {width: 0px}
+    100% {width: 80%}
+}
+
+@keyframes arrow-anim {
+    0% {margin-bottom: 0px;}
+    30% {margin-bottom: 30px;}
+    50% {margin-bottom: 40px;}
+    70% {margin-bottom: 30px;}
+    100% {margin-bottom: 0px;}
+}

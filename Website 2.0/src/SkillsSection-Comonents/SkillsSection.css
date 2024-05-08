@@ -1,0 +1,198 @@
+:root{
+    --cube-dim:100px;
+}
+
+.SkillsSection-Body{
+    min-height: 100vh;
+    height: 100%;
+    height: fit-content;
+    position: relative;
+    overflow: visible;
+    padding: 20px;
+    display: block;
+    position: relative;
+    z-index: 0;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.SkillsSection-Main{
+  min-width: fit-content;
+  padding: 100px;
+  padding-top: 25px;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.85);
+  margin: auto;
+  position: relative;
+  height: max-content;
+}
+
+
+#cube-wrapper {
+    position: relative;
+    display: block;
+    height: calc(var(--cube-dim) * 2 );
+    width: calc(var(--cube-dim) * 2);
+    padding: 0;
+    margin: auto;
+    margin-top: 200px;
+}
+  
+  .cube {
+    padding: 0;
+    position: absolute;
+    perspective: 200000px;
+    transform-style: preserve-3d;
+    transition: 0.4s;
+  }
+  
+  .face {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--cube-dim) * 2);
+    height: calc(var(--cube-dim) * 2);
+    border: solid #2E2E2E 3px;
+    background-color: #FFFFFF;
+  }
+
+  .face img{
+    margin: 5px;
+    width: 100px;
+  }
+
+  .face h3{
+    font-weight: 400;
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  #front_face {
+    transform: translateX(calc(0px - var(--cube-dim))) translateY(calc(0px - var(--cube-dim))) translateZ(var(--cube-dim));
+  }
+  
+  #back_face {
+    transform: translateX(calc(0px - var(--cube-dim))) translateY(calc(0px - var(--cube-dim))) translateZ(calc(0px - var(--cube-dim))) rotateX(180deg);
+  }
+  
+  #right_face {
+    transform: translateY(calc(0px - var(--cube-dim))) rotateY(90deg);
+  }
+  
+  #left_face {
+    transform: translateY(calc(0px - var(--cube-dim))) translateX(calc(0px - var(--cube-dim) * 2)) rotateY(-90deg);
+  }
+  
+  #top_face {
+    transform: translateX(calc(0px - var(--cube-dim))) translateY(calc(0px - var(--cube-dim) * 2)) rotateX(90deg);
+  }
+  
+  #bottom_face {
+    transform: translateX(calc(0px - var(--cube-dim))) rotateX(-90deg);
+  }
+
+  .SkillsList-Container{
+    height: 300px;
+    width: 90%;
+    margin: auto;
+    margin-left: 10%;
+    position: relative;
+  }
+
+.SkillsList{
+  height: fit-content;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+}
+
+.SkillsList-Element{
+  margin-top: 5px;
+  width: 30%;
+  transition: 0.4s;
+  position: relative;
+}
+
+.SkillsList-Element:has(> button:hover), .SkillsList-Element:has(> button:focus) {
+  width: 100%;
+}
+
+.SkillsList-Element button{
+  border: none;
+  text-align: left;
+  margin: 0;
+  padding: 0px 0px 16px 6px;
+  padding-right: 20px;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.SkillsList-Element button:hover, .SkillsList-Element button:focus{
+  width: 80%;
+  height: 100px;
+  clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0 100%, 0 0);
+}
+
+.SkillsList-Element button:focus{
+  outline: none;
+  text-decoration: underline;
+}
+
+.SkillsList_Bar{
+  width: 2px;
+  height: calc(100% + 30px);
+  bottom: 0px;
+  position: absolute;
+  background-color: black;
+  box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.SkillsList-Title{
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.ListStyleElement{
+  background-color: #2E2E2E;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -5px;
+  left: -39px;
+  z-index: 50;
+}
+
+.ListStyleElement h3{
+  margin: auto;
+  margin-left:5px;
+  font-size: 2rem;
+}
+
+.SkillsSection-Title h2{
+  font-size: 4rem;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+
+.SkillsSection-TitleUnderline{
+  width: 0px;
+  height: 7px;
+  background-color: #D9D9D9;
+}
+
+.TitleUnderLine-Animation{
+  animation: TitleUnderLine-Key 0.4s;
+  animation-delay: 0.5s;
+}
+
+@keyframes TitleUnderLine-Key{
+  0% {width:0%}
+  100% {width:40%}
+}
