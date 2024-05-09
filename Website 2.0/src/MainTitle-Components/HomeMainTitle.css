@@ -1,10 +1,12 @@
 .Main-Back{
     width: 100%;
-    height: calc(100vh - var(--Main-Back-Footer-Height) - var(--navBar-Header-Height));
-    background-color: #CFCFCF;
+    height: 100vh;
+    padding-bottom: 10vh;
+    background: #CFCFCF;
     position: relative;
     z-index: -1000;
     overflow: hidden;
+    transition: 1s;
 }
 
 .Main-Back-Footer{
@@ -25,6 +27,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-bottom: 20vh;
 }
 
 .Title-Container h1{
@@ -36,18 +39,6 @@
     font-weight: 400;
     margin: 0;
     padding: 0;
-}
-
-.Main-Arrow{
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    margin-bottom: 0px;
-    animation: arrow-anim 1.5s linear infinite;
 }
 
 .Wave{
@@ -85,12 +76,4 @@
 @keyframes unerline-Appear {
     0% {width: 0px}
     100% {width: 80%}
-}
-
-@keyframes arrow-anim {
-    0% {margin-bottom: 0px;}
-    30% {margin-bottom: 30px;}
-    50% {margin-bottom: 40px;}
-    70% {margin-bottom: 30px;}
-    100% {margin-bottom: 0px;}
 }

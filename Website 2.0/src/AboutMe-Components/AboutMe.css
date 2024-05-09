@@ -1,0 +1,94 @@
+.AboutMe-Body{
+    width: 100%;
+    min-height: fit-content;
+    margin: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    font-family: 'JetBrains Mono', sans-serif;
+    align-items: center;
+}
+
+.AboutMe-Image{
+    margin: 0;
+    height: 720px;
+    width: 50%;
+    background-color: blue;
+}
+
+.AboutMe-Content{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 50%;
+    padding: 10px;
+    display: inline-block;
+}
+
+.AboutMe-Head{
+    margin-left: 20px;
+}
+
+.AboutMe-Head h2{
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.AboutMe-Content > p{
+    font-size: 1.5rem;
+    height: 60%;
+    overflow-y: auto;
+}
+
+.AboutMe-Content > p > a{
+    color: #2E2E2E;
+}
+
+  .AboutMe-Button, .AboutMe-Button::before{
+    width: 150px;
+    margin: 10px 30px;
+    border-radius: 10px;
+    padding: 0px;
+    height: 45px;
+    transition: 1s;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #2E2E2E;
+    color: #2E2E2E;
+  }
+
+  .AboutMe-Button p{
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+  }
+
+  .AboutMe-Button::before {
+    background-color: #FFC738;
+    margin: 0;
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 0px;
+    border: none;
+    z-index: 1;
+  }
+
+  .AboutMe-Button:hover{
+    cursor: pointer;
+    color: #FFFFFF;
+    border-radius: 20px;
+  }
+
+  .AboutMe-Button:hover::before{
+    width: 150px;
+  }
+
+  .Buttons-Wrapper{
+    display: flex;
+    justify-content: center;
+  }

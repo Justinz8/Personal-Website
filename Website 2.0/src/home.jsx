@@ -1,7 +1,10 @@
-import HomeMainTitle from "./HomeMainTitle.jsx"
-import BackgroundSection from "./SkillsSection-Comonents/SkillsSection.jsx"
+import HomeMainTitle from "./MainTitle-Components/HomeMainTitle.jsx"
+import SkillsSection from "./SkillsSection-Components/SkillsSection.jsx"
+import AboutMeSection from "./AboutMe-Components/AboutMe.jsx"
+import ProjectSection from "./Projects-Components/ProjectSection.jsx"
 import './home.css'
 import { useEffect, useState } from "react"
+import Chill from './assets/images/Chill.jpg'
 
 export default function Home(){
 
@@ -18,12 +21,12 @@ export default function Home(){
         green: 255,
         blue: 67
     }
-    const backgroundCycle = 500; //how long a background cycle is based on the number of pixels scrolled
+    const backgroundCycle = 2000; //how long a background cycle is based on the number of pixels scrolled
 
     const [backgroundStyle, SetBackgroundStyle] = useState({
-        background: `linear-gradient(116.82deg, rgb(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}) 0%, 
-                                     rgb(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}) 20.5%, 
-                                     rgb(${targetRGB2.red}, ${targetRGB2.green}, ${targetRGB2.blue}) 100%)`
+        backgroundImage: `linear-gradient(116.82deg, rgba(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}, 0.65) 0%, 
+                                     rgba(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}, 0.65) 20.5%, 
+                                     rgba(${targetRGB2.red}, ${targetRGB2.green}, ${targetRGB2.blue}, 0.65) 100%), url(${Chill})`
     })
 
     useEffect(()=>{
@@ -57,9 +60,9 @@ export default function Home(){
 
             //update with new RGB values
             SetBackgroundStyle({
-                background: `linear-gradient(116.82deg, rgb(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}) 0%,
-                             rgb(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}) 20.5%,
-                             rgb(${secondRGB.red}, ${secondRGB.green}, ${secondRGB.blue}) 100%)`
+                backgroundImage: `linear-gradient(116.82deg, rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 0%,
+                             rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 20.5%,
+                             rgba(${secondRGB.red}, ${secondRGB.green}, ${secondRGB.blue}, 0.65) 100%), url(${Chill})`
             })
         }
 
@@ -74,7 +77,11 @@ export default function Home(){
         <div className="Main-Body">
             <div className="customBackground" style={backgroundStyle}></div>
             <HomeMainTitle />
-            <BackgroundSection />
+            <AboutMeSection />
+            <div className="Skills-Projects-Body">
+                <SkillsSection />
+                <ProjectSection />
+            </div>
         </div>
     )
 }

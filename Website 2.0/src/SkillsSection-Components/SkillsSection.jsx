@@ -1,6 +1,8 @@
 import './SkillsSection.css'
 import { useState, useRef, useEffect } from 'react'
 import SkillsList_Item from './SkillsList_Item'
+import Subtitle from '../Public-Components/Subtitle'
+
 import react_icon from '../assets/images/React-icon.png'
 import java_icon from '../assets/images/Java-icon.png'
 import js_icon from '../assets/images/Js-icon.png'
@@ -27,38 +29,11 @@ export default function BackgroundSection(){
                 transx: curtransx,
                 transz: curtransz})
     }
-    
-    const SkillsTitle = useRef(null)
-
-    useEffect(()=>{
-
-        function animationendHandler(){
-            SkillsTitle.current.style.width = "40%"
-            SkillsTitle.current.removeEventListener("animationend", animationendHandler)
-        }
-
-        function CheckInFrame(){
-            let distance = SkillsTitle.current.getBoundingClientRect().top - window.innerHeight;
-            if(distance<=0){
-                SkillsTitle.current.addEventListener("animationend", animationendHandler)
-                SkillsTitle.current.classList.add("TitleUnderLine-Animation")
-                document.removeEventListener('scroll', CheckInFrame)
-            }
-            
-        }
-        
-        document.addEventListener('scroll', CheckInFrame)
-        return () =>{
-            document.removeEventListener('scroll', CheckInFrame)
-        }
-    }, [])
 
     return(
         <section className="SkillsSection-Body">
-            <div className='SkillsSection-Main'>
                 <header className='SkillsSection-Title'>
-                    <h2>Skills</h2>
-                    <div className='SkillsSection-TitleUnderline' ref={SkillsTitle}/>
+                    <Subtitle SubtitleContent="Skills" UnderlineWidth={40}/>
                 </header>
 
                 <div className='cubeSkills'>
@@ -112,7 +87,6 @@ export default function BackgroundSection(){
                         </ul>
                     </div>
                 </div>
-            </div>
         </section>
     )
 }

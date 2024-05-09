@@ -20,7 +20,7 @@
   padding: 100px;
   padding-top: 25px;
   width: 60%;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.4);
   margin: auto;
   position: relative;
   height: max-content;
@@ -128,6 +128,7 @@
   padding: 0px 0px 16px 6px;
   padding-right: 20px;
   width: 100%;
+  min-width: 150px;
   transition: 0.4s;
 }
 
@@ -179,20 +180,4 @@
   font-weight: 300;
   padding: 0;
   margin: 0;
-}
-
-.SkillsSection-TitleUnderline{
-  width: 0px;
-  height: 7px;
-  background-color: #D9D9D9;
-}
-
-.TitleUnderLine-Animation{
-  animation: TitleUnderLine-Key 0.4s;
-  animation-delay: 0.5s;
-}
-
-@keyframes TitleUnderLine-Key{
-  0% {width:0%}
-  100% {width:40%}
 }
