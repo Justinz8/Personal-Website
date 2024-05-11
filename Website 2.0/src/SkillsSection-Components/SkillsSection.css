@@ -3,19 +3,12 @@
 }
 
 .Skills-BackBody{
-  min-width: fit-content;
-  padding: 100px;
-  padding-top: 25px;
-  width: 60%;
-  background: rgba(255, 255, 255, 0.4);
-  margin: 10px auto;
-  position: relative;
-  height: max-content;
-  margin-bottom: 0;
+  padding: 25px 100px 0px 100px;
+  margin: 0px auto;
 }
 
 .SkillsSection-Body{
-    min-height: 100vh;
+
     height: 100%;
     height: fit-content;
     position: relative;

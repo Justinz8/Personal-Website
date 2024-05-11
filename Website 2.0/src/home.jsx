@@ -2,6 +2,7 @@ import HomeMainTitle from "./MainTitle-Components/HomeMainTitle.jsx"
 import SkillsSection from "./SkillsSection-Components/SkillsSection.jsx"
 import AboutMeSection from "./AboutMe-Components/AboutMe.jsx"
 import ProjectSection from "./Projects-Components/ProjectSection.jsx"
+import ContactsSection from "./ContactsSection-Components/ContactsSection.jsx"
 import './home.css'
 import { useEffect, useState } from "react"
 import Chill from './assets/images/Chill.jpg'
@@ -70,7 +71,7 @@ export default function Home(){
                 backgroundImage: `linear-gradient(116.82deg, rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 0%,
                              rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 20.5%,
                              rgba(${secondRGB.red}, ${secondRGB.green}, ${secondRGB.blue}, 0.65) 100%), url(${Chill})`,
-                backgroundPosition: `center ${scrollPercent}%`
+                backgroundPosition: `50% ${scrollPercent}%`
             })
         }
 
@@ -88,6 +89,7 @@ export default function Home(){
             <AboutMeSection />
             <SkillsSection />
             <ProjectSection />
+            <ContactsSection />
         </div>
     )
 }

@@ -33,7 +33,8 @@ export default function ProjectSection(){
                                                          ProjectTitle={x.title}
                                                          ProjectImage={x.image} 
                                                          ProjectDate={x.date} 
-                                                         ProjectLink={x.github} 
+                                                         ProjectLink={x.github}
+                                                         ProjectLearningObjective = {x.learningObjective} 
                                                          Id = {`${x.id}-${ProjectSectionId}`} 
                                                          ProjectToggleFunc = {setProjectToggle}
                                                          ProjectToggled = {new Map(ProjectToggled)}
@@ -49,7 +50,7 @@ export default function ProjectSection(){
         SetPWrapperToggle(x=>!x)
     }
 
-    const ProjectWrapper= (
+    const ProjectWrapper = (
             <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? {maxHeight: '100vh', transition: "1s", overflow: "auto"}: {}} 
             onTransitionEnd={()=>{SetTogglePButton(!PWrapperToggle)}}>
                 {PWrapperToggle ? (
@@ -62,11 +63,16 @@ export default function ProjectSection(){
                 )}
                 
                 {Projects}
-            </div>
-    )
+            </div>)
 
     return(
-        <div className='Projects-BackBody' style={PWrapperToggle ? {paddingLeft: 0, paddingRight: 0, width: "calc(60% + 200px)"}: {}}>
+        <>
+            <div className='Projects-BackBody BackBody'>
+                <header className='ProjectSection-Head'>
+                    <Subtitle SubtitleContent="Projects" UnderlineWidth={40}/>
+                </header>
+            </div>
+            <div className='Projects-BackBody BackBody' style={PWrapperToggle ? {paddingLeft: 0, paddingRight: 0, width: "calc(60% + 200px)", maxWidth: "calc(60% + 200px)", minWidth: "calc(60% + 200px)"}: {}}>
             <div className='ProjectSection-Body'>
                 <style>
                     {
@@ -77,9 +83,6 @@ export default function ProjectSection(){
                         }`
                     }
                 </style>
-                <header className='ProjectSection-Head'>
-                    <Subtitle SubtitleContent="Projects" UnderlineWidth={40}/>
-                </header>
                 {TogglePButton ? (
                     <button className='PWrapper-Button' onClick={!PWrapperToggle ? wrapperToggle : ()=>{}}>
                         {ProjectWrapper}
@@ -87,5 +90,7 @@ export default function ProjectSection(){
                 ):(ProjectWrapper)}
             </div>
         </div>
+        </>
+        
     )
 }

@@ -31,7 +31,7 @@ export default function BackgroundSection(){
     }
 
     return(
-        <div className="Skills-BackBody">
+        <div className="Skills-BackBody BackBody">
             <section className="SkillsSection-Body">
                     <header className='SkillsSection-Title'>
                         <Subtitle SubtitleContent="Skills" UnderlineWidth={40}/>

@@ -8,5 +8,15 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
+.BackBody{
+    min-width: fit-content;
+    width: 60%;
+    max-width: 60%;
+    min-width: 60%;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    height: max-content;
+  }

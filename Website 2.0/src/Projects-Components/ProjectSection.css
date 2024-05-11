@@ -1,13 +1,7 @@
 .Projects-BackBody{
-    min-width: fit-content;
-    padding: 100px;
-    padding-top: 25px;
-    width: 60%;
-    background: rgba(255, 255, 255, 0.4);
-    margin: 10px auto;
-    position: relative;
+    padding: 0px 100px 10px 100px;
+    margin: 0px auto;
     height: max-content;
-    margin-top: 0;
     transition: 1s;
 }
 
@@ -21,6 +15,7 @@
 }
 
 .ProjectSection-Head h2{
+    font-family: 'JetBrains Mono', sans-serif;
     font-weight: 400;
     margin: 0;
     font-size: 3.5rem;
@@ -30,7 +25,7 @@
     position: relative;
     height: fit-content;
     max-height: 50px;
-    margin-top: 10px;
+    margin-top: 0px;
     
     width: 100%;
 
@@ -46,9 +41,11 @@
     grid-column-gap: 1%;
     justify-content: center;
 
-    background-color: #FFFFFF;
+    background-color: #f55d49;
     border-radius: 10px;
     transition: 1s;
+
+    
 }
 
 .PWrapper-Button{
@@ -66,8 +63,11 @@
     padding: 0;
     width: 100%;
     height:100%;
-    background-color: red;
+    min-height: fit-content;
+    background-color: transparent;
     position: relative;
+    overflow: hidden;
+    border: solid black 1px;
 }
 
 .ProjecTab-Subtitle{
@@ -86,10 +86,15 @@
     height: 200px;
     background-color: transparent;
     position: relative;
+    font-family: 'JetBrains Mono', sans-serif;
 }
 
-.ProjectTab-Button:hover{
-    cursor: pointer;
+.Project-Thumbnail{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(3px);
 }
 
 
@@ -98,6 +103,7 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 10px;
+    
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
@@ -107,6 +113,7 @@
     height: fit-content;
     position: absolute;
     padding: 0;
+    z-index: 100;
     border: none;
     background-color: transparent;
     left: calc(50%);
@@ -150,3 +157,37 @@
     transform: rotate(-45deg);
 }
 
+.ProjectTab-ContentSection{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: fit-content;
+    display: flex;
+    overflow: hidden;
+}
+
+.ProjectTab-Content{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    margin: 8px;
+    text-align: left;
+    min-height: fit-content;
+}
+
+.ProjectTab-Content h3{
+    font-size: 2rem;
+}
+
+.ProjectTab-Content p{
+    font-size: 1rem;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.ProjectTab-Image{
+    max-width: 50%;
+    object-fit: contain;
+    border-radius: 10px;
+}
