@@ -1,4 +1,152 @@
+.Projects-BackBody{
+    min-width: fit-content;
+    padding: 100px;
+    padding-top: 25px;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 10px auto;
+    position: relative;
+    height: max-content;
+    margin-top: 0;
+    transition: 1s;
+}
+
 .ProjectSection-Body {
-    height: 100vh;
+    height: fit-content;
     width: 100%;
 }
+
+.ProjectSection-Body{
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.ProjectSection-Head h2{
+    font-weight: 400;
+    margin: 0;
+    font-size: 3.5rem;
+}
+
+.ProjectSection-ProjectWrapper{
+    position: relative;
+    height: fit-content;
+    max-height: 50px;
+    margin-top: 10px;
+    
+    width: 100%;
+
+    overflow: hidden;
+    
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+    display: grid;
+    grid-template-columns: 48.5% 48.5%;
+    grid-template-rows: auto;
+    grid-row-gap: 10px;
+    grid-column-gap: 1%;
+    justify-content: center;
+
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.PWrapper-Button{
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    transition: 1s;
+}
+
+.ProjectTab{
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100%;
+    background-color: red;
+    position: relative;
+}
+
+.ProjecTab-Subtitle{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.ProjectTab-Button{
+    padding: 0;
+    border: none;
+    min-height: fit-content;
+    height: 200px;
+    background-color: transparent;
+    position: relative;
+}
+
+.ProjectTab-Button:hover{
+    cursor: pointer;
+}
+
+
+.PWrapper-Arrow{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.Arrow-Wrapper{
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    left: calc(50%);
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+.PWrapper-XButton{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+.PWrapper-XButton:hover{
+    cursor: pointer;
+}
+
+.PWrapper-X{
+    position: relative;
+    width: calc(40px / sqrt(2));
+    height: calc(40px / sqrt(2));
+    padding: 0;
+}
+
+.PWrapper-X::after, .PWrapper-X::before{
+    width: 40px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    left: -20%;
+    top: 50%;
+    content: "";
+}
+
+.PWrapper-X::after{
+    transform: rotate(45deg);
+}
+.PWrapper-X::before{
+    transform: rotate(-45deg);
+}
+

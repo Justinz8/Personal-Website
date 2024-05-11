@@ -33,7 +33,7 @@ export default function HomeMainTitle(){//TODO: make background transition from 
         }
     }, [])
     useEffect(()=>{
-        if (wave != null){
+        if (wave != null && wave.current.getBoundingClientRect() != null){
             SetWaveStyle(x => {
                 return {
                     ...x,

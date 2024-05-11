@@ -26,7 +26,8 @@ export default function Home(){
     const [backgroundStyle, SetBackgroundStyle] = useState({
         backgroundImage: `linear-gradient(116.82deg, rgba(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}, 0.65) 0%, 
                                      rgba(${targetRGB1.red}, ${targetRGB1.green}, ${targetRGB1.blue}, 0.65) 20.5%, 
-                                     rgba(${targetRGB2.red}, ${targetRGB2.green}, ${targetRGB2.blue}, 0.65) 100%), url(${Chill})`
+                                     rgba(${targetRGB2.red}, ${targetRGB2.green}, ${targetRGB2.blue}, 0.65) 100%), url(${Chill})`,
+        backgroundPosition: "center 0%"
     })
 
     useEffect(()=>{
@@ -40,6 +41,12 @@ export default function Home(){
         function calculateBackground(){
             //get which part of the cycle we are on in %
             let scrollDepth = ((window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop)%backgroundCycle)
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                                html.clientHeight, html.scrollHeight, html.offsetHeight );
+            let scrollPercent = (((window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop))/height)*100
 
             if(scrollDepth>=backgroundCycle/2) scrollDepth = backgroundCycle/2-(scrollDepth-backgroundCycle/2) //check if cycle needs to be in reverse
 
@@ -62,7 +69,8 @@ export default function Home(){
             SetBackgroundStyle({
                 backgroundImage: `linear-gradient(116.82deg, rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 0%,
                              rgba(${firstRGB.red}, ${firstRGB.green}, ${firstRGB.blue}, 0.65) 20.5%,
-                             rgba(${secondRGB.red}, ${secondRGB.green}, ${secondRGB.blue}, 0.65) 100%), url(${Chill})`
+                             rgba(${secondRGB.red}, ${secondRGB.green}, ${secondRGB.blue}, 0.65) 100%), url(${Chill})`,
+                backgroundPosition: `center ${scrollPercent}%`
             })
         }
 
@@ -78,10 +86,8 @@ export default function Home(){
             <div className="customBackground" style={backgroundStyle}></div>
             <HomeMainTitle />
             <AboutMeSection />
-            <div className="Skills-Projects-Body">
-                <SkillsSection />
-                <ProjectSection />
-            </div>
+            <SkillsSection />
+            <ProjectSection />
         </div>
     )
 }

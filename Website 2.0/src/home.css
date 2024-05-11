@@ -10,13 +10,3 @@
     margin: 0;
 }
 
-.Skills-Projects-Body{
-    min-width: fit-content;
-    padding: 100px;
-    padding-top: 25px;
-    width: 60%;
-    background: rgba(255, 255, 255, 0.4);
-    margin: 10px auto;
-    position: relative;
-    height: max-content;
-}
