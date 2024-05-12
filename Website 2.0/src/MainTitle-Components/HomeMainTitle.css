@@ -10,7 +10,7 @@
 }
 
 .Main-Back-Footer{
-    background-color: #FFFFFF;
+    background-color: var(--Accent-Color-light);
     width: 100%;
     height: var(--Main-Back-Footer-Height);
     display: flex;
@@ -32,7 +32,7 @@
 
 .Title-Container h1{
     position: relative;
-    color: #2E2E2E;
+    color: var(--Black-Color);
     z-index: 0;
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 8rem;
@@ -49,7 +49,7 @@
     z-index: -500;
     bottom: -210vw;
     transition: bottom 4s linear;
-    background: linear-gradient(180deg, #FFC738 0%, #FFC738 50%, #FFFFFF 100%);
+    background: linear-gradient(180deg, var(--Accent-Color-Dark) 0%, var(--Accent-Color-Dark) 50%, var(--Accent-Color-light) 100%);
     border-radius: 33%;
     animation: Waven 10s linear infinite;
 }
@@ -59,7 +59,7 @@
     width: 80%;
     animation: unerline-Appear 1s ease-out;
     margin: auto;
-    background-color: white;
+    background-color: var(--Accent-Color-light);
 }
 
 .White-Underline-placeholder{

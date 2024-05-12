@@ -52,7 +52,7 @@ export default function HomeMainTitle(){//TODO: make background transition from 
                 SetMainBackStyle(x => {
                     return {
                         ...x,
-                        background: `linear-gradient(${mainBackStyle.backDeg}deg, #FFC738 0%, #FFC738 71.5%, #E7DFD7 100%)`
+                        background: `linear-gradient(${mainBackStyle.backDeg}deg, #f4b738 0%, #f4b738 71.5%, #E7DFD7 100%)`
                     }
                 })
     
@@ -61,7 +61,7 @@ export default function HomeMainTitle(){//TODO: make background transition from 
                         x => {
                             return {
                                 ...x,
-                                background: `linear-gradient(${x.backDeg+1}deg, #FFC738 0%, #FFC738 71.5%, #E7DFD7 100%)`,
+                                background: `linear-gradient(${x.backDeg+1}deg, #f4b738 0%, #f4b738 71.5%, #E7DFD7 100%)`,
                                 backDeg: x.backDeg+1
                             }
                         }

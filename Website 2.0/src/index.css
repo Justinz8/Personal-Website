@@ -15,3 +15,12 @@ html, body{
     height: 100vh;
     z-index: -10000;
 }
+
+:root{
+    --Primary-Color:#ffcd80;
+    --Secondary-Color: #fffcc9;
+    --Accent-Color-light: #ffffff;
+    --Accent-Color-Dark: #f4b738;
+    --UnderTone-Color: #ff8a00;
+    --Black-Color: #2E2E2E;
+}

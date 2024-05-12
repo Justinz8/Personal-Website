@@ -8,11 +8,12 @@
     min-width: calc(60% + 200px);
     margin: 0px auto;
     margin-bottom: 10px;
+    color: var(--Black-Color);
 }
 
 .ContactsSection-BackBody{
     height: 100px;
-    max-width: none;
+    max-width: none;        
     min-width: none;
     width: 100%;
     position: absolute;
@@ -29,7 +30,7 @@
     width: 500px;
     height: 500px;
     padding: 10px;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--Secondary-Color);
     
     margin: auto auto;
     font-family: "Roboto Slab", serif;
@@ -40,7 +41,7 @@
 }
 
 .ContactsSection-Header {
-    margin-left: 10px;
+    margin: 0px 10px;
 }
 .ContactsSection-Header h2{
     margin: 0;
@@ -52,10 +53,10 @@
     resize: none;
     width: 100%;
     height: 70px;
-    padding: 2px;
+    padding: 2px 0% 2px 0px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: #f1f1f1;
+    background-color: #fcf6f6;
     overflow: auto;
 }
 
@@ -64,21 +65,90 @@
     border-radius: 5px;
     height: 20px;
     border: 1px solid black;
-    background-color: #f1f1f1;
+    background-color: #fcf6f6;
+}
+
+.Inquiry-Form button{
+    border: none;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 3px rgba(0, 0, 0, 0.14);
+    font-family: "JetBrains Mono", monospace;
+    background-color: #f3f3f3ff;
+    color: var(--Accent-Color-Dark);
+    transition-duration: 0.1s;
+}
+
+.Inquiry-Form button:hover{
+    background-color: var(--UnderTone-Color);
+    color: var(--Accent-Color-light);
+}
+
+.Inquiry-Form button:active{
+    background-color: var(--UnderTone-Color);
+    color: var(--UnderTone-Color);
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.14);
+    transform: translateY(3px);
 }
 
 .Redirect-Button{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     padding: 0;
     margin: 0;
     border: 1px solid black;
-    background-color: #ffd569;
+    background-color: var(--Primary-Color);
+    position: relative;
+    display: inline-block;
+    appearance: auto;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+}
+
+.Redirect-Button::before{
+    min-width: 50px;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    color: var(--Black-Color);
+    border-radius: 5px;
+    
+
+}
+
+.Redirect-Button:hover:has(.Email)::before{
+    content: 'Email';
+}
+
+.Redirect-Button:hover:has(.LinkedIn)::before{
+    content: 'LinkedIn';
+}
+
+.Redirect-Button:hover:has(.Github)::before{
+    content: 'Github';
+}
+
+.Redirect-Button:hover::before{
+    background-color: rgb(255, 255, 255);
+    left: 50%;
+    text-align: center;
+    transform: translateY(40px) translateX(-50%);
+    animation: ozafier 0.2s;
+}
+
+@keyframes ozafier {
+    from {transform: translateY(0px)  translateX(-50%);}
+    to {transform: translateY(40px)  translateX(-50%);}
 }
 
 .Redirect-Button:hover{
-    background-color: #FFC738;
+    background-color: var(--Accent-Color-Dark);
     cursor: pointer;
 }
 
@@ -102,7 +172,10 @@
     width: 60%;
     height: 60%;
     padding: 0;
-    margin: auto auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
     background-size: cover;
 }
 

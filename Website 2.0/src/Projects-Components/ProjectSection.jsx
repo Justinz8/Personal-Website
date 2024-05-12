@@ -51,7 +51,7 @@ export default function ProjectSection(){
     }
 
     const ProjectWrapper = (
-            <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? {maxHeight: '100vh', transition: "1s", overflow: "auto"}: {}} 
+            <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? {maxHeight: '100vh', transition: "1s", overflow: "auto", backgroundColor: "#ffc56b"}: {}} 
             onTransitionEnd={()=>{SetTogglePButton(!PWrapperToggle)}}>
                 {PWrapperToggle ? (
                     <button className='PWrapper-XButton' onClick={wrapperToggle}>
@@ -61,8 +61,9 @@ export default function ProjectSection(){
                         <div className='PWrapper-Arrow' />
                     </div>
                 )}
-                
-                {Projects}
+                <div className='ProjectSection-InnerWrapper' style={PWrapperToggle ? {backgroundColor: "#fcf8a2"}: {}}>
+                    {Projects}
+                </div>
             </div>)
 
     return(

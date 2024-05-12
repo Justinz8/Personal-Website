@@ -75,19 +75,19 @@ export default function ContactsSection(){
                 </form>
                 <div className='ContactButtons'>
                     <a href='a'>
-                        <button className='Redirect-Button'>
+                        <div className='Redirect-Button'>
                             <div className='Redirect-Button-Wrapper Email' />
-                        </button>
+                        </div>
                     </a>
                     <a href='a'>
-                        <button className='Redirect-Button'>
+                        <div className='Redirect-Button'>
                             <div className='Redirect-Button-Wrapper LinkedIn' />
-                        </button>
+                        </div>
                     </a>
                     <a href='a'>
-                        <button className='Redirect-Button'>
+                        <div className='Redirect-Button'>
                             <div className='Redirect-Button-Wrapper Github' />
-                        </button>
+                        </div>
                     </a>
                 </div>
             </div>

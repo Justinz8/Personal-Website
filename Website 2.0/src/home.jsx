@@ -13,14 +13,14 @@ export default function Home(){
 
     //RGB values for gradient background
     const targetRGB1 = {
-        red: 255,
-        green: 199,
+        red: 244,
+        green: 183,
         blue: 56
     }
     const targetRGB2 = {
-        red: 251,
-        green: 255,
-        blue: 67
+        red: 255,
+        green: 252,
+        blue: 201
     }
     const backgroundCycle = 2000; //how long a background cycle is based on the number of pixels scrolled
 

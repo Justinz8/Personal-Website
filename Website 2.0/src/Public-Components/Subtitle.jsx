@@ -9,7 +9,7 @@ export default function Subtitle(props){
     const [UnderlineStyle, SetUnderlineStyle] = useState({
         width: 0,
         height: "7px",
-        backgroundColor: "#D9D9D9"
+        backgroundColor: "#ff8a00"
     })
 
     useEffect(()=>{
@@ -50,8 +50,8 @@ export default function Subtitle(props){
             <style>
                 {`
                 @keyframes underlinekey-${keyframeId} {
-                    from {width:0%}
-                    to {width:${props.UnderlineWidth}%}
+                    from {width:0%; background-color:#ffcd80;}
+                    to {width:${props.UnderlineWidth}%; background-color:#ff8a00;}
                 }
                 `}
             </style>
