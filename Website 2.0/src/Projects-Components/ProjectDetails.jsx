@@ -1,5 +1,6 @@
-import icon3 from '../assets/images/Chill.jpg'
 import SnekSS from '../assets/images/SnekSS.png'
+import CSCB20 from '../assets/images/CSCB20SS.png'
+import PersonalPortSS from '../assets/images/PersonalPortSS.png'
 
 export default [
     {
@@ -14,38 +15,24 @@ export default [
         github: "https://github.com/Justinz8/SNEK"
     },{
         id: 2,
-        title: "Original Website",
-        content: "2",
-        image: "",
-        date: "",
-        github: ""
+        title: "Course Page Website",
+        content: (`This project is a full-stack project from CSCB20 that tasked myself and my group with recreating the course webpage. 
+                   The website is made using concepts and tools taught in class which includes plain html and css as the front end with python flask and sqlite acting as
+                   the backend. Included in this website is a mix of static pages and backend functionalities for both a student user type and instructor user type,
+                   giving the ability to recieve/send grades, ask for/see regrades, send/recieve feedback, and login/register new users.`),
+        learningObjective: "This project demonstrates proficiency in plain html and css as well as a good understanding working with python flask and SQL-like DMLs.",
+        image: CSCB20,
+        date: "Apr 9 2024",
+        github: "https://github.com/Justinz8/CSCB20-Website"
     },{
         id: 3,
-        title: "3",
-        content: "    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium beatae cupiditate eos sequi non voluptatibus et porro ea. Sint, velit doloribus est ipsam cumque veniam totam nihil nesciunt perferendis. Cumque!",
-        image: icon3,
-        date: "Jan 1 1111",
+        title: "Personal Portfolio Website",
+        content: (`You are already familiar with this project! This website is made with javascipt, jsx, and css using React, striving to add dynamic elements without 
+                    going too over the top. This is actually my second portfolio website, the first iteration used html, css, and vanilla javascript and was frankly not that good
+                    so I remade it whilst reinforcing my skills with React in the process.`),
+        learningObjective: "This project demonstrates proficiency using React and javascript in general.",
+        image: PersonalPortSS,
+        date: "May 14 2024",
         github: ""
-    },{
-        id: 4,
-        title: "4",
-        content: "4",
-        image: "",
-        date: "",
-        github: ""
-    },{
-        id: 5,
-        title: "5",
-        content: "5",
-        image: "",
-        date: "",
-        github: ""
-    },{
-        id: 6,
-        title: "6",
-        content: "6",
-        image: "",
-        date: "",
-        github: ""
-    },
+    }
 ]

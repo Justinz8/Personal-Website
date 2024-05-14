@@ -53,7 +53,7 @@ export default function ProjectTab({ProjectContent, ProjectTitle, ProjectImage, 
                             </div>
                             <img src={ProjectImage} className="ProjectTab-Image" />
                     </div>):(<>
-                        <div className="Project-Thumbnail" style={{backgroundImage: `url(${ProjectImage})`}}/>
+                        <div className="Project-Thumbnail" style={{backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), url(${ProjectImage})`}}/>
                         <h2 className="ProjecTab-Subtitle">{ProjectTitle}</h2>
                     </>)}
                 </div>

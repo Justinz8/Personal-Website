@@ -89,6 +89,7 @@
 
 .NavBar-Links button:hover{
     cursor: pointer;
+    color: var(--Accent-Color-Dark);
 }
 
 .NavBar-Links li{

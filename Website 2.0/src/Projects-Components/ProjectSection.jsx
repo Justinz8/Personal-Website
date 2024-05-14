@@ -22,8 +22,7 @@ export default forwardRef(function ProjectSection(props, ref){
                                                                       maxWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`, 
                                                                       minWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`})
 
-    useEffect(()=>{
-
+    useEffect(()=>{//add eventlistener to update width of backbody between different screen width modes
         function TogBBStyleWrap(){
             SetToggledBackBodyStyle(x =>{
                 return {
@@ -33,7 +32,6 @@ export default forwardRef(function ProjectSection(props, ref){
                     minWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`,
                 }
             })
-            
         }
 
         window.addEventListener("resize",TogBBStyleWrap)
@@ -42,19 +40,19 @@ export default forwardRef(function ProjectSection(props, ref){
         }
     }, [])
 
-    const [PWrapperToggle, SetPWrapperToggle] = useState(true)
-    const [TogglePButton, SetTogglePButton] = useState(false)
 
     const ProjectSectionId = useId()
     
-
+    //default value of ProjectToggled
     const DefaultProjectToggled = new Map();
     ProjectDetails.forEach(x => {
         DefaultProjectToggled.set(`${x.id}-${ProjectSectionId}`, false)
     })
 
-    const [ProjectToggled, SetProjectToggles] = useState(DefaultProjectToggled)
+    //keeps track of which project tab is toggled
+    const [ProjectToggled, SetProjectToggles] = useState(DefaultProjectToggled) 
 
+    //function that sets the project tab with ProjectId as toggled and everything else as untoggled
     function setProjectToggle(ProjectId){
         SetProjectToggles(x => {
             let newProjectToggled = new Map(x)
@@ -76,7 +74,17 @@ export default forwardRef(function ProjectSection(props, ref){
                                                          ProjectToggled = {new Map(ProjectToggled)}
                                                          key={`${x.id}-${ProjectSectionId}`}/>)
 
+    
+    //boolean the tracks if projects section is expanded or not
+    const [PWrapperToggle, SetPWrapperToggle] = useState(true)
+
+    //seperate boolean that keeps track when to toggle the button that expands the projects section.
+    //Needed because there is a transition when toggling/untoggling the Project wrapper div
+    const [TogglePButton, SetTogglePButton] = useState(false)
+
+    //function that toggles projection section to an extended state or not
     function wrapperToggle(){
+        //set all project tabs to an untoggled state
         SetProjectToggles(x => {
             let newProjectToggled = new Map(x)
             newProjectToggled.forEach((value, key) => {
@@ -86,21 +94,24 @@ export default forwardRef(function ProjectSection(props, ref){
         SetPWrapperToggle(x=>!x)
     }
 
-    const ProjectWrapper = (
-            <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? ProjectWrapperStyle: {}} 
-            onTransitionEnd={()=>{SetTogglePButton(!PWrapperToggle)}}>
-                {PWrapperToggle ? (
-                    <button className='PWrapper-XButton' onClick={wrapperToggle}>
-                        <div className='PWrapper-X'/>
-                    </button>):(
-                    <div className='Arrow-Wrapper'>
-                        <div className='PWrapper-Arrow' />
-                    </div>
-                )}
-                <div className='ProjectSection-InnerWrapper' style={PWrapperToggle ? {backgroundColor: "#fcf8a2"}: {}}>
-                    {Projects}
-                </div>
-            </div>)
+    const ProjectWrapper = (<div className='ProjectSection-ProjectWrapper'
+                                style={PWrapperToggle ? {...ProjectWrapperStyle, overflow: TogglePButton ? "hidden" : "auto"}: {}} 
+                                onTransitionEnd={()=>{SetTogglePButton(!PWrapperToggle)}}>{/*toggles button after transition is finished */}
+                                
+                                {PWrapperToggle ? (
+                                    /* minimize project section X button */
+                                    <button className='PWrapper-XButton' onClick={wrapperToggle}>
+                                        <div className='PWrapper-X'/>
+                                    </button>):(
+                                    /*arrow that shows in an untoggled project section state*/
+                                    <div className='Arrow-Wrapper'>
+                                        <div className='PWrapper-Arrow' />
+                                    </div>
+                                )}
+                                <div className='ProjectSection-InnerWrapper' style={PWrapperToggle ? {backgroundColor: "#fcf8a2"}: {}}>
+                                    {Projects}
+                                </div>
+                            </div>)
 
     return(
         <div ref={ref}>
@@ -112,6 +123,11 @@ export default forwardRef(function ProjectSection(props, ref){
                 @keyframes ProjectBodyKeyRecede {
                     from {flex-basis: calc(100% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px);}
                     to {flex-basis: 100%}
+                }
+                .PWrapper-Button:hover{
+                    ${
+                        !PWrapperToggle ? "cursor: pointer;": ""
+                    }
                 }`}
             </style>
             <div className='BackBody Projects-BackBody'>
@@ -120,21 +136,15 @@ export default forwardRef(function ProjectSection(props, ref){
                 </header>
             </div>
             <div className='Projects-BackBody BackBody MainBackBody' ref={BackBody} style={PWrapperToggle ? ToggledBackBodyStyle: {}} onres>
-                <div className='ProjectSection-Body' style={PWrapperToggle ? {animation: `ProjectBodyKeyExtend 1s`}:{animation: `ProjectBodyKeyRecede 1s`}}>
-                    <style>
-                        {
-                            `.PWrapper-Button:hover{
-                                ${
-                                    !PWrapperToggle ? "cursor: pointer;": ""
-                                }
-                            }`
-                        }
-                    </style>
+                <div className='ProjectSection-Body' 
+                     style={PWrapperToggle ? {animation: `ProjectBodyKeyExtend 1s`}:{animation: `ProjectBodyKeyRecede 1s`}}>
+
                     {TogglePButton ? (
                         <button className='PWrapper-Button' onClick={!PWrapperToggle ? wrapperToggle : ()=>{}}>
                             {ProjectWrapper}
                         </button>
                     ):(ProjectWrapper)}
+                    
                 </div>
             </div>
         </div>

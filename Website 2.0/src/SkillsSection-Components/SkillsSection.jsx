@@ -78,12 +78,12 @@ export default forwardRef(function BackgroundSection(props, ref){
                         </div>
                         <div className='SkillsList-Container'>
                             <ul className='SkillsList'>
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, 0, centerMargin, 0)}} SkillTitle="React" BackColor="#33F3FF" SkillContent="psaw aw dw aw wa aw a  dwad awd awd wa ussy" nmb={1} />
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, -1, 0, -centerMargin)}} SkillTitle="Java" BackColor="#FFFFFF" nmb={2} />
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(2, 0, centerMargin, 0)}} SkillTitle="Javascript" BackColor="#FFD600" nmb={3} />
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, 1, 0, centerMargin)}} SkillTitle="HTML/CSS" BackColor="#FF5C38" nmb={4} />
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(-1, 0, centerMargin, 0)}} SkillTitle="C" BackColor="#5A75FF" nmb={5} />
-                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(1, 0, centerMargin, 0)}} SkillTitle="Python" BackColor="#9AFF35" nmb={6} />
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, 0, centerMargin, 0)}} SkillTitle="React" BackColor="#33F3FF" SkillContent="Proficient with React and its features with this website as proof" nmb={1} />
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, -1, 0, -centerMargin)}} SkillTitle="Java" BackColor="#FFFFFF" SkillContent="Built out plenty of small projects with Java establishing a thorough understanding of OOP" nmb={2} />
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(2, 0, centerMargin, 0)}} SkillTitle="Javascript" BackColor="#FFD600" nmb={3} SkillContent="Built out multiple dynamic websites that used both frameworks such as React and vanilla Javascript"/>
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(0, 1, 0, centerMargin)}} SkillTitle="HTML/CSS" BackColor="#FF5C38" SkillContent="Built out multiple websites having a thorough understanding of how HTML/CSS works as well as its best practices" nmb={4} />
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(-1, 0, centerMargin, 0)}} SkillTitle="C" BackColor="#5A75FF" SkillContent="Have a good understanding as to how C handles memory and how to manipulate that memory to build programs" nmb={5} />
+                                <SkillsList_Item MarginFunc={()=>{setboxdegfunc(1, 0, centerMargin, 0)}} SkillTitle="Python" BackColor="#9AFF35" SkillContent="Created many python programs that utilised the conciseness python code" nmb={6} />
                                 <div className='SkillsList_Bar'/>
                             </ul>
                         </div>
