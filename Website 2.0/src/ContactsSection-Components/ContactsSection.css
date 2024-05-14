@@ -188,6 +188,10 @@
     justify-content: space-around;
 }
 
+.ContactsSection-Main h2{
+    margin-left: 0;
+}
+
 @media screen and (max-width: 1000px) {
     .ContactsSection-Body{
         width: calc(60% + 120px);
@@ -195,13 +199,24 @@
         min-width: calc(60% + 120px);
     }
     .ContactsSection-Main{
-        height: 280px;
-        width: 280px;
+        height: 380px;
+        width: 380px;
     }
     .Inquiry-Form input{
-        height: 10px;
+        height: 15px;
     }
     .Inquiry-Form textarea{
         height: 35px;
+    }
+    .ContactsSection-Main h4{
+        margin: 0 0 5px 10px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .ContactsSection-Main{
+        margin: auto;
+        height: fit-content;
+        width: calc(100% - 20px);
     }
 }

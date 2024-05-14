@@ -12,7 +12,7 @@
 
 
 @media screen and (max-width: 750px) {
-    .SkillsSection-Title h2{
+    .Subtitle-Content{
       font-size: 3rem;
       width: 100%;
       text-align: center;

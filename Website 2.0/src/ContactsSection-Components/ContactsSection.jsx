@@ -3,7 +3,7 @@ import { useState, useId, forwardRef, useEffect } from 'react'
 
 export default forwardRef(function ContactsSection(props, ref){
     
-      function handleFormSubmit(event) {  // handles form submit without any jquery
+    function handleFormSubmit(event) {  // handles form submit without any jquery
         event.preventDefault();           // we are submitting via xhr below
         var form = event.target;
         var data = formData;
@@ -15,7 +15,7 @@ export default forwardRef(function ContactsSection(props, ref){
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-              form.reset();
+                form.reset();
             }
         };
         // url encode form data for sending as post data
@@ -23,8 +23,9 @@ export default forwardRef(function ContactsSection(props, ref){
             return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
         }).join('&');
         xhr.send(encoded);
-      }
+    }
 
+    //standard form handler
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -42,12 +43,18 @@ export default forwardRef(function ContactsSection(props, ref){
         })
     }
 
-    var SmallerBox;
+    //Check if need to switch to small screen mode
+    const [SmallerBox, SetSmallerBox] = useState(window.innerWidth<=1000);
 
     useEffect(()=>{
-        SmallerBox = window.innerWidth<=1000 
-        console.log("oz")
-    },[window.innerWidth])
+        function SetSmallerBoxWrapper(){
+            SetSmallerBox(window.innerWidth<=1000)
+        }
+        window.addEventListener("resize", SetSmallerBoxWrapper)
+        return ()=>{
+            window.removeEventListener("resize", SetSmallerBoxWrapper)
+        }
+    },[])
 
     const Id = useId()
     return (

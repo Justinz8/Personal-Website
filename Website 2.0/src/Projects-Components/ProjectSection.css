@@ -1,14 +1,25 @@
 .Projects-BackBody{
     margin: 0px auto;
     height: max-content;
-    transition: 1s;
+    position: relative;
     padding-bottom: 25px;
+    
+}
+
+.MainBackBody{
+    display: flex;
+    justify-content: center;
 }
 
 .ProjectSection-Body {
     height: fit-content;
-    width: 100%;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    transition: 1s;
 }
+
+
 
 .ProjectSection-Body{
     font-family: 'JetBrains Mono', sans-serif;

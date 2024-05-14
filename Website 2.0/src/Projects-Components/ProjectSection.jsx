@@ -1,12 +1,46 @@
 import './ProjectSection.css'
 import Subtitle from '../Public-Components/Subtitle'
-import { useState, useId, forwardRef } from 'react'
+import { useState, useId, forwardRef, useEffect, useRef, use } from 'react'
 import ProjectTab from './ProjectTab'
 import ProjectDetails from './ProjectDetails'
 
 export default forwardRef(function ProjectSection(props, ref){
 
-    const backbodyWidth = window.innerWidth > 1000 ? 100 : 60
+    const ProjectWrapperStyle = {
+        maxHeight: '100vh', 
+        transition: "1s", 
+        overflow: "auto", 
+        backgroundColor: "#ffc56b"
+    }
+
+    //handle screen width modes:
+    const BackBody = useRef(null)
+
+    const [ToggledBackBodyStyle, SetToggledBackBodyStyle] = useState({paddingLeft: 0, 
+                                                                      paddingRight: 0, 
+                                                                      width: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`, 
+                                                                      maxWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`, 
+                                                                      minWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`})
+
+    useEffect(()=>{
+
+        function TogBBStyleWrap(){
+            SetToggledBackBodyStyle(x =>{
+                return {
+                    ...x,
+                    width: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`, 
+                    maxWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`, 
+                    minWidth: `calc(60% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px)`,
+                }
+            })
+            
+        }
+
+        window.addEventListener("resize",TogBBStyleWrap)
+        return ()=>{
+            window.removeEventListener("resize",TogBBStyleWrap)
+        }
+    }, [])
 
     const [PWrapperToggle, SetPWrapperToggle] = useState(true)
     const [TogglePButton, SetTogglePButton] = useState(false)
@@ -53,7 +87,7 @@ export default forwardRef(function ProjectSection(props, ref){
     }
 
     const ProjectWrapper = (
-            <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? {maxHeight: '100vh', transition: "1s", overflow: "auto", backgroundColor: "#ffc56b"}: {}} 
+            <div className='ProjectSection-ProjectWrapper' style={PWrapperToggle ? ProjectWrapperStyle: {}} 
             onTransitionEnd={()=>{SetTogglePButton(!PWrapperToggle)}}>
                 {PWrapperToggle ? (
                     <button className='PWrapper-XButton' onClick={wrapperToggle}>
@@ -70,17 +104,23 @@ export default forwardRef(function ProjectSection(props, ref){
 
     return(
         <div ref={ref}>
+            <style>
+                {`@keyframes ProjectBodyKeyExtend {
+                    from {flex-basis: calc(100% - ${(window.innerWidth > 1000 ? 100 : 60)*2}px)}
+                    to {flex-basis: 100%}
+                }
+                @keyframes ProjectBodyKeyRecede {
+                    from {flex-basis: calc(100% + ${(window.innerWidth > 1000 ? 100 : 60)*2}px);}
+                    to {flex-basis: 100%}
+                }`}
+            </style>
             <div className='BackBody Projects-BackBody'>
                 <header className='ProjectSection-Head'>
                     <Subtitle SubtitleContent="Projects" UnderlineWidth={40}/>
                 </header>
             </div>
-            <div className='Projects-BackBody BackBody' style={PWrapperToggle ? {paddingLeft: 0, 
-                                                                                 paddingRight: 0, 
-                                                                                 width: `calc(60% + ${backbodyWidth*2}px)`, 
-                                                                                 maxWidth: `calc(60% + ${backbodyWidth*2}px)`, 
-                                                                                 minWidth: `calc(60% + ${backbodyWidth*2}px)`}: {}}>
-                <div className='ProjectSection-Body'>
+            <div className='Projects-BackBody BackBody MainBackBody' ref={BackBody} style={PWrapperToggle ? ToggledBackBodyStyle: {}} onres>
+                <div className='ProjectSection-Body' style={PWrapperToggle ? {animation: `ProjectBodyKeyExtend 1s`}:{animation: `ProjectBodyKeyRecede 1s`}}>
                     <style>
                         {
                             `.PWrapper-Button:hover{
