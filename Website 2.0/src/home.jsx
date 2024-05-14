@@ -7,7 +7,7 @@ import './home.css'
 import { useEffect, useState } from "react"
 import Chill from './assets/images/Chill.jpg'
 
-export default function Home(){
+export default function Home({SectionObjects}){
 
     // values to change dynamic gradient background
 
@@ -86,10 +86,10 @@ export default function Home(){
         <div className="Main-Body">
             <div className="customBackground" style={backgroundStyle}></div>
             <HomeMainTitle />
-            <AboutMeSection />
-            <SkillsSection />
-            <ProjectSection />
-            <ContactsSection />
+            <AboutMeSection ref={SectionObjects.get("AboutMe")}/>
+            <SkillsSection ref={SectionObjects.get("Skills")}/>
+            <ProjectSection ref={SectionObjects.get("Projects")}/>
+            <ContactsSection ref={SectionObjects.get("Contacts")}/>
         </div>
     )
 }

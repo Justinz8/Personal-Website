@@ -11,6 +11,8 @@
     color: var(--Black-Color);
 }
 
+
+
 .ContactsSection-BackBody{
     height: 100px;
     max-width: none;        
@@ -184,4 +186,22 @@
     display: flex;
     margin-top: 20px;
     justify-content: space-around;
+}
+
+@media screen and (max-width: 1000px) {
+    .ContactsSection-Body{
+        width: calc(60% + 120px);
+        max-width: calc(60% + 120px);
+        min-width: calc(60% + 120px);
+    }
+    .ContactsSection-Main{
+        height: 280px;
+        width: 280px;
+    }
+    .Inquiry-Form input{
+        height: 10px;
+    }
+    .Inquiry-Form textarea{
+        height: 35px;
+    }
 }

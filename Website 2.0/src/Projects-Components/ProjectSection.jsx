@@ -1,13 +1,15 @@
 import './ProjectSection.css'
 import Subtitle from '../Public-Components/Subtitle'
-import { useState, useId } from 'react'
+import { useState, useId, forwardRef } from 'react'
 import ProjectTab from './ProjectTab'
 import ProjectDetails from './ProjectDetails'
 
-export default function ProjectSection(){
+export default forwardRef(function ProjectSection(props, ref){
 
-    const [PWrapperToggle, SetPWrapperToggle] = useState(false)
-    const [TogglePButton, SetTogglePButton] = useState(true)
+    const backbodyWidth = window.innerWidth > 1000 ? 100 : 60
+
+    const [PWrapperToggle, SetPWrapperToggle] = useState(true)
+    const [TogglePButton, SetTogglePButton] = useState(false)
 
     const ProjectSectionId = useId()
     
@@ -67,31 +69,34 @@ export default function ProjectSection(){
             </div>)
 
     return(
-        <>
-            <div className='Projects-BackBody BackBody'>
+        <div ref={ref}>
+            <div className='BackBody Projects-BackBody'>
                 <header className='ProjectSection-Head'>
                     <Subtitle SubtitleContent="Projects" UnderlineWidth={40}/>
                 </header>
             </div>
-            <div className='Projects-BackBody BackBody' style={PWrapperToggle ? {paddingLeft: 0, paddingRight: 0, width: "calc(60% + 200px)", maxWidth: "calc(60% + 200px)", minWidth: "calc(60% + 200px)"}: {}}>
-            <div className='ProjectSection-Body'>
-                <style>
-                    {
-                        `.PWrapper-Button:hover{
-                            ${
-                                !PWrapperToggle ? "cursor: pointer;": ""
-                            }
-                        }`
-                    }
-                </style>
-                {TogglePButton ? (
-                    <button className='PWrapper-Button' onClick={!PWrapperToggle ? wrapperToggle : ()=>{}}>
-                        {ProjectWrapper}
-                    </button>
-                ):(ProjectWrapper)}
+            <div className='Projects-BackBody BackBody' style={PWrapperToggle ? {paddingLeft: 0, 
+                                                                                 paddingRight: 0, 
+                                                                                 width: `calc(60% + ${backbodyWidth*2}px)`, 
+                                                                                 maxWidth: `calc(60% + ${backbodyWidth*2}px)`, 
+                                                                                 minWidth: `calc(60% + ${backbodyWidth*2}px)`}: {}}>
+                <div className='ProjectSection-Body'>
+                    <style>
+                        {
+                            `.PWrapper-Button:hover{
+                                ${
+                                    !PWrapperToggle ? "cursor: pointer;": ""
+                                }
+                            }`
+                        }
+                    </style>
+                    {TogglePButton ? (
+                        <button className='PWrapper-Button' onClick={!PWrapperToggle ? wrapperToggle : ()=>{}}>
+                            {ProjectWrapper}
+                        </button>
+                    ):(ProjectWrapper)}
+                </div>
             </div>
         </div>
-        </>
-        
     )
-}
+})

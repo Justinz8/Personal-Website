@@ -1,28 +1,36 @@
 import { useState } from "react"
 
 export default function ProjectTab({ProjectContent, ProjectTitle, ProjectImage, ProjectLink, ProjectToggleFunc, ProjectToggled, ProjectDate, ProjectLearningObjective, Id}){
+
+    const untriggeredCol = "span 1"
+    const untriggeredRow = "span 1"
+    const triggeredCol = window.innerWidth>1000 ? "span 2" : "span 1"
+    const triggeredRow = "span 2"
+    const untriggeredHeight = "200px"
+    const triggeredHeight = window.innerWidth>1000 ? "400px" : "fit-content"
+
     const [ProjectTabStyle, SetProjectTabStyle] = useState({
-        gridColumn: "span 1",
-        gridRow: "span 1",
-        height: "200px"
+        gridColumn: untriggeredCol,
+        gridRow: untriggeredRow,
+        height: untriggeredHeight
     })
 
     const toggled = ProjectToggled.get(Id)
 
-    if(toggled && (ProjectTabStyle.gridColumn!=="span 2")){
+    if(toggled && (ProjectTabStyle.gridColumn!==triggeredCol || ProjectTabStyle.gridRow!==triggeredRow || ProjectTabStyle.height!==triggeredHeight)){
         SetProjectTabStyle(x => {
             return {
-                gridColumn: "span 2",
-                gridRow: "span 2",
-                height: "400px"
+                gridColumn: triggeredCol,
+                gridRow: triggeredRow,
+                height: triggeredHeight
             }
         })
-    }else if(!toggled && (ProjectTabStyle.gridColumn!=="span 1")){
+    }else if(!toggled && (ProjectTabStyle.gridColumn!==untriggeredCol || ProjectTabStyle.height!==untriggeredHeight)){
         SetProjectTabStyle(x => {
             return {
-                gridColumn: "span 1",
-                gridRow: "span 1",
-                height: "200px"
+                gridColumn: untriggeredCol,
+                gridRow: untriggeredRow,
+                height: untriggeredHeight
             }
         })
     }

@@ -3,16 +3,22 @@
     min-height: fit-content;
     margin: 0;
     background-color: var(--Accent-Color-light);
-    display: flex;
     font-family: 'JetBrains Mono', sans-serif;
-    align-items: center;
+}
+
+.AboutMe-Main{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
 }
 
 .AboutMe-Image{
     margin: 0;
     height: 720px;
     width: 50%;
-    
+    order: 2;
 }
 
 .AboutMe-Content{
@@ -20,8 +26,8 @@
     margin: 0;
     height: 100%;
     width: 50%;
-    padding: 10px;
-    display: inline-block;
+    display: block;
+    order: 1;
 }
 
 .AboutMe-Head{
@@ -30,7 +36,7 @@
 
 .AboutMe-Head h2{
     margin-bottom: 0;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 400;
 }
 
@@ -38,6 +44,7 @@
     font-size: 1.5rem;
     height: 60%;
     overflow-y: auto;
+    margin: 10px 0 0 10px;
 }
 
 .AboutMe-Content > p > a{
@@ -91,4 +98,24 @@
   .Buttons-Wrapper{
     display: flex;
     justify-content: center;
+  }
+
+  @media screen and (max-width: 750px) {
+    .AboutMe-Head h2{
+      font-size: 3rem;
+      width: 100%;
+      text-align: center;
+    }
+    .AboutMe-Head{
+      margin: 0;
+    }
+    .AboutMe-Main{
+      display: block;
+    }
+    .AboutMe-Content{
+      width: 100%;
+    }
+    .AboutMe-Image{
+      width: 100%;
+    }
   }

@@ -1,7 +1,7 @@
 import './ContactsSection.css'
-import { useState, useId } from 'react'
+import { useState, useId, forwardRef, useEffect } from 'react'
 
-export default function ContactsSection(){
+export default forwardRef(function ContactsSection(props, ref){
     
       function handleFormSubmit(event) {  // handles form submit without any jquery
         event.preventDefault();           // we are submitting via xhr below
@@ -41,18 +41,27 @@ export default function ContactsSection(){
             }
         })
     }
-    
-    const Id = useId()
 
+    var SmallerBox;
+
+    useEffect(()=>{
+        SmallerBox = window.innerWidth<=1000 
+        console.log("oz")
+    },[window.innerWidth])
+
+    const Id = useId()
     return (
-        <div className="ContactsSection-Body">
+        <div className="ContactsSection-Body" ref={ref}>
             <div className='ContactsSection-Main'>
                 <header className='ContactsSection-Header'>
                     <h2>Contacts</h2>
                 </header>
-                <p>
-                    If you have any inquiries feel free to contact me with any of the methods listed below
-                </p>
+                {!SmallerBox && (
+                    <p>
+                        If you have any inquiries feel free to contact me with any of the methods listed below
+                    </p>
+                )}
+                
                 <h4>Send an inquiry throught this form!</h4>
                 <form onSubmit={handleFormSubmit} className='Inquiry-Form'>
                     <label htmlFor={`name-${Id}`}>Name</label>
@@ -94,4 +103,4 @@ export default function ContactsSection(){
             <div className='ContactsSection-BackBody' />
         </div>
     )
-}
+})

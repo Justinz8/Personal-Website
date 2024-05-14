@@ -1,5 +1,5 @@
 import './SkillsSection.css'
-import { useState, useRef, useEffect } from 'react'
+import { useState, forwardRef } from 'react'
 import SkillsList_Item from './SkillsList_Item'
 import Subtitle from '../Public-Components/Subtitle'
 
@@ -11,7 +11,7 @@ import c_icon from '../assets/images/C-icon.png'
 import python_icon from '../assets/images/Python-icon.png'
 
 
-export default function BackgroundSection(){
+export default forwardRef(function BackgroundSection(props, ref){
 
     const centerMargin = 97 //gotta guess and check to center the cube cuz border (around half of the dim of cube + border thickness)
 
@@ -31,7 +31,7 @@ export default function BackgroundSection(){
     }
 
     return(
-        <div className="Skills-BackBody BackBody">
+        <div className="Skills-BackBody BackBody" ref={ref}>
             <section className="SkillsSection-Body">
                     <header className='SkillsSection-Title'>
                         <Subtitle SubtitleContent="Skills" UnderlineWidth={40}/>
@@ -91,4 +91,4 @@ export default function BackgroundSection(){
             </section>
         </div>
     )
-}
+})

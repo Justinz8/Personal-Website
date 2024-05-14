@@ -1,8 +1,8 @@
 .Projects-BackBody{
-    padding: 0px 100px 10px 100px;
     margin: 0px auto;
     height: max-content;
     transition: 1s;
+    padding-bottom: 25px;
 }
 
 .ProjectSection-Body {
@@ -12,13 +12,6 @@
 
 .ProjectSection-Body{
     font-family: 'JetBrains Mono', sans-serif;
-}
-
-.ProjectSection-Head h2{
-    font-family: 'JetBrains Mono', sans-serif;
-    font-weight: 400;
-    margin: 0;
-    font-size: 3.5rem;
 }
 
 .ProjectSection-ProjectWrapper{
@@ -54,7 +47,7 @@
     border-radius: 10px;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: calc(100% - 2px);
     height:100%;
     min-height: fit-content;
     background-color: transparent;
@@ -77,6 +70,7 @@
     border: none;
     min-height: fit-content;
     height: 200px;
+    width: 100%;
     background-color: transparent;
     position: relative;
     font-family: 'JetBrains Mono', sans-serif;
@@ -88,6 +82,8 @@
     background-size: cover;
     background-position: center center;
     filter: blur(3px);
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -186,15 +182,37 @@
 }
 
 .ProjectSection-InnerWrapper{
-    width: 100%;
+    width: calc(100% - 10px);
     height: 100%;
-    padding: 20px 0px;
+    padding: 20px 5px 20px 5px;
     background-color: var(--Secondary-Color);
     display: grid;
-    grid-template-columns: 48.5% 48.5%;
+    grid-template-columns: 49.5% 49.5%;
     grid-template-rows: auto;
     grid-row-gap: 10px;
     grid-column-gap: 1%;
     justify-content: center;
     transition: 1s;
+}
+
+@media screen and (max-width: 1000px) {
+    .ProjectSection-InnerWrapper{
+        display: block;
+    }
+    .ProjectTab-ContentSection{
+        display: block;
+        height: fit-content;
+    }
+    .ProjectTab-Image{
+        width: 100px;
+        height: 100px;
+    }
+    .ProjectTab-Content{
+        height: fit-content;
+    }
+    .ProjectTab{
+        height: 100%;
+        overflow: visible;
+    }
+
 }

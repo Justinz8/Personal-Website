@@ -3,7 +3,10 @@ import './Footer.css'
 export default function Footer(){
     return (
         <div className="navBar-Footer">
-            <h4>Footer</h4>
+            <p>Justin Zhang ©2024</p>
+            <div className='Footer-wave' />
+            <div className='Footer-wave' />
+            <div className='Footer-wave' />
         </div>
     )
 }

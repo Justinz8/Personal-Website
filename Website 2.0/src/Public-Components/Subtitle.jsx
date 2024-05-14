@@ -1,26 +1,23 @@
 import { useEffect, useRef, useState, useId } from 'react'
 import React from 'react'
 
+import "./Subtitle.css"
+
 export default function Subtitle(props){
     const SkillsTitle = useRef(null)
 
     const keyframeId = useId().replaceAll(":", "")
 
     const [UnderlineStyle, SetUnderlineStyle] = useState({
-        width: 0,
-        height: "7px",
-        backgroundColor: "#ff8a00"
+        width: 0
     })
+
+    const [UnderlineFinished, SetUnderlineFinished] = useState(false)
 
     useEffect(()=>{
 
         function animationendHandler(){
-            SetUnderlineStyle(x=>{
-                return {
-                    ...x,
-                    width: `${props.UnderlineWidth}%`
-                }
-            })
+            SetUnderlineFinished(true)
             SkillsTitle.current.removeEventListener("animationend", animationendHandler)
         }
 
@@ -45,19 +42,29 @@ export default function Subtitle(props){
         }
     }, [])
 
+    function currentUnderlineWidth(){
+        let cur = {...UnderlineStyle}
+        if(UnderlineFinished){
+            cur.width=`${window.innerWidth >750 ? props.UnderlineWidth : 100}%`
+            cur.transition="1s"
+        }
+
+        return cur
+    }
+
     return (
         <>
             <style>
                 {`
                 @keyframes underlinekey-${keyframeId} {
                     from {width:0%; background-color:#ffcd80;}
-                    to {width:${props.UnderlineWidth}%; background-color:#ff8a00;}
+                    to {width:${window.innerWidth >750 ? props.UnderlineWidth : 100}%; background-color:#ff8a00;}
                 }
                 `}
             </style>
             
-            <h2>{props.SubtitleContent}</h2>
-            <div style={UnderlineStyle} ref={SkillsTitle}/>
+            <h2 className='Subtitle-Content'>{props.SubtitleContent}</h2>
+            <div className="Subtitle-Underline" style={currentUnderlineWidth()} ref={SkillsTitle}/>
         </>
     )
 }
