@@ -7,22 +7,24 @@ export default forwardRef(function ContactsSection(props, ref){
         event.preventDefault();           // we are submitting via xhr below
         var form = event.target;
         var data = formData;
-        // disableAllButtons(form);
-        var url = "https://script.google.com/macros/s/AKfycbxSd1zaTs9GWxorreZae1Bg6dlKlCK3tYrzsK_5UODpjVVYYgM2X2Ph5H4jHJuu2SlCvQ/exec";
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', url);
-        // xhr.withCredentials = true;
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                form.reset();
-            }
-        };
-        // url encode form data for sending as post data
-        var encoded = Object.keys(data).map(function(k) {
-            return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-        }).join('&');
-        xhr.send(encoded);
+        if(data.name!=="" && data.email!=="" && data.subject!=="" && data.content!==""){
+            // disableAllButtons(form);
+            var url = "https://script.google.com/macros/s/AKfycbxSd1zaTs9GWxorreZae1Bg6dlKlCK3tYrzsK_5UODpjVVYYgM2X2Ph5H4jHJuu2SlCvQ/exec";
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            // xhr.withCredentials = true;
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    form.reset();
+                }
+            };
+            // url encode form data for sending as post data
+            var encoded = Object.keys(data).map(function(k) {
+                return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+            }).join('&');
+            xhr.send(encoded);
+        }
     }
 
     //standard form handler

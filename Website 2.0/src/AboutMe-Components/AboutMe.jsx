@@ -1,5 +1,6 @@
 import "./AboutMe.css"
 import { forwardRef } from "react"
+import Me from "../assets/images/Me.png"
 import Subtitle from "../Public-Components/Subtitle"
 
 export default forwardRef(function AboutMeSection(props, ref){
@@ -10,7 +11,7 @@ export default forwardRef(function AboutMeSection(props, ref){
                     <Subtitle SubtitleContent="About Me" UnderlineWidth={30}/>
                 </header>
                 <div className="AboutMe-Main">
-                    <img className="AboutMe-Image"></img>
+                    <img className="AboutMe-Image" src={Me}></img>
                     <div className="AboutMe-Content">
                         <p>
                             I graduated from high school with an IB diploma in Ontario and am on course to graduate with a 

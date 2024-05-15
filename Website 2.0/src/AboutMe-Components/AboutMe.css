@@ -11,14 +11,17 @@
   margin: 0;
   padding: 0;
   display: flex;
-  align-items: flex-start;
+  
 }
 
 .AboutMe-Image{
-    margin: 0;
-    height: 720px;
-    width: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    height: 500px;
+    max-width: 50%;
+    width: auto;
     order: 2;
+    border: black 2px solid;
 }
 
 .AboutMe-Content{
@@ -116,6 +119,7 @@
       width: 100%;
     }
     .AboutMe-Image{
-      width: 100%;
+      max-width: 100%;
+      height: auto;
     }
   }
